@@ -1,1 +1,54 @@
 <p>album works!</p>
+<div class="album" *ngIf="albums">
+    <mat-card class="card" >  
+        <!-- <mat-card class="card" *ngFor="let album of albums">  -->
+      <mat-card-header>
+        <mat-card-title>{{albums.name}}</mat-card-title>
+      </mat-card-header>  
+      <img [src]="albums.images[0].url" alt="Album Image" mat-card-image>
+      <mat-card-content>
+        <b><p>{{albums.type}}</p></b>
+      </mat-card-content>
+      <button mat-raised-button color="accent" (click)="getAlbumTrack()">get track</button>
+    </mat-card>
+</div>
+
+
+
+<!-- 
+<div class="album" *ngIf="albumsTrack">
+    <mat-card class="card" *ngFor="let a of albumsTrack" > 
+        <mat-card *ngFor="let album of albums"> 
+      <mat-card-header>
+        <mat-card-title>{{albumsTrack.name}}</mat-card-title>
+      </mat-card-header>  
+      <img [src]="albumsTrack.images[0].url" alt="Album Image" mat-card-image>
+      <mat-card-content>
+        <b><p>{{albumsTrack.type}}</p></b>
+      </mat-card-content>
+    </mat-card>
+</div> -->
+
+<div class="container">
+<div class="row" *ngIf="albumsTrack">
+    <div class="col-md-3">
+    <mat-card class="card" *ngFor="let album of albumsTrack">
+        <mat-card-header>
+            <mat-card-title>{{album.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <b>
+                <p>{{album.type}}</p>
+            </b>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</div>
+</div>
+<!-- <mat-grid-list cols="4" color="row" rowHeight="2:1">
+    <mat-grid-tile
+        *ngFor="let title of albumsTrack"
+    >{{title.name}}<br>
+    {{title.type}}</mat-grid-tile>
+  </mat-grid-list> -->
+
